@@ -1,0 +1,16 @@
+# Environments
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pixi/
+.pixi-cache/
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS / editor cruft
+.DS_Store
