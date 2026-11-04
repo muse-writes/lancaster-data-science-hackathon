@@ -14,3 +14,6 @@ __pycache__/
 
 # OS / editor cruft
 .DS_Store
+
+# Local data folder
+data/

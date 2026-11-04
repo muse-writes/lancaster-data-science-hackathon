@@ -28,6 +28,10 @@ pixi run main
 
 The main goal is to perform some exploratory data analysis on one of the three datasets provided.
 
+### Radar Data
+
+Download the RadarData folder and place it in `./data/`. The source file, `radar_data.py` contains a public function `load_radar_data()` which loads the relevant data files.
+
 ## Extras
 
 - This repository is missing a `./tests/` directory. Try and add your own if you have time. A common unit testing framework is `pytest`.
