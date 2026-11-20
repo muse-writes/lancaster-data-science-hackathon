@@ -33,6 +33,8 @@ from pathlib import Path
 import numpy as np
 import scipy.io
 
+from lancaster_data_science_hackathon.utils import DEFAULT_DATA_DIR
+
 # Leading digit of the file name -> human-readable activity name.
 ACTIVITIES: dict[int, str] = {
     1: "Walking",
@@ -47,9 +49,7 @@ ACTIVITIES: dict[int, str] = {
 _MAT_VARIABLE = "Data_spec_MTI2"
 
 # Default location of the .mat files, resolved relative to the repo root.
-_DEFAULT_DATA_DIR = (
-    Path(__file__).resolve().parents[2] / "data" / "RadarData" / "Data"
-)
+_DEFAULT_ENERGY_DATA_DIR = DEFAULT_DATA_DIR / "RadarData" / "Data"
 
 
 def _to_db(complex_spec: np.ndarray) -> np.ndarray:
@@ -91,9 +91,9 @@ def load_radar_data(
 ) -> dict[int, np.ndarray]:
     """Load radar micro-Doppler spectrograms from ``.mat`` files.
 
-    Reproduces ``data/RadarData/LoadData.R``: for each activity class
-    (leading digit of the file name) it loads the first ``.mat`` file
-    (alphabetically) and returns its spectrogram in dB.
+    Reproduces ``RadarData/LoadData.R``: for each activity class (leading
+    digit of the file name) it loads the first ``.mat`` file (alphabetically)
+    and returns its spectrogram in dB.
 
     :param data_dir: Directory containing the ``.mat`` files.  Defaults to
         ``<repo>/data/RadarData/Data``.
@@ -103,7 +103,9 @@ def load_radar_data(
     :raises FileNotFoundError: If ``data_dir`` does not exist or contains no
         ``.mat`` files.
     """
-    directory = Path(data_dir) if data_dir is not None else _DEFAULT_DATA_DIR
+    directory = (
+        Path(data_dir) if data_dir is not None else _DEFAULT_ENERGY_DATA_DIR
+    )
     if not directory.is_dir():
         raise FileNotFoundError(
             f"Radar data folder not found: {directory!s}. Pass an explicit "
