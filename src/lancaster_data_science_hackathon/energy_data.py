@@ -11,6 +11,8 @@ import pandas as pd
 from lancaster_data_science_hackathon.utils import DEFAULT_DATA_DIR
 
 
+_DEFAULT_ENERGY_DATA_DIR = DEFAULT_DATA_DIR / "Energy Usage" / "Data"
+
 def load_energy_data(data_path: str | None = None) -> dict:
     """Loads all five CSV files as pandas dataframes.
 
@@ -23,7 +25,7 @@ def load_energy_data(data_path: str | None = None) -> dict:
         no ``.csv`` files.
     """
     directory = (
-        DEFAULT_DATA_DIR / "Energy Usage" / "Data"
+        _DEFAULT_ENERGY_DATA_DIR
         if data_path is None
         else Path(data_path)
     )
