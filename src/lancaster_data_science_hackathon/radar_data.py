@@ -36,13 +36,13 @@ import scipy.io
 from lancaster_data_science_hackathon.utils import DEFAULT_DATA_DIR
 
 # Leading digit of the file name -> human-readable activity name.
-ACTIVITIES: dict[int, str] = {
-    1: "Walking",
-    2: "Sitting down",
-    3: "Standing up",
-    4: "Picking up object",
-    5: "Drinking",
-    6: "Falling",
+ACTIVITIES: dict[str, int] = {
+    "Walking":           1,
+    "Sitting down":      2,
+    "Standing up":       3,
+    "Picking up object": 4,
+    "Drinking":          5,
+    "Falling":           6,
 }
 
 # The single MATLAB variable held in every .mat file in this dataset.
