@@ -28,6 +28,8 @@ pixi run main
 
 The main goal is to perform some exploratory data analysis on one of the three datasets provided.
 
+To use any of the datasets, download them and place them in a `./data/` folder (which you will need to create). This will let the provided scripts for locating and loading the data find it.
+
 ### Radar Data
 
 Download the RadarData folder and place it in `./data/`. The source file, `radar_data.py` contains a public function `load_radar_data()` which loads the relevant data files.
