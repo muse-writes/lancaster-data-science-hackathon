@@ -13,7 +13,7 @@ from lancaster_data_science_hackathon.utils import DEFAULT_DATA_DIR
 
 _DEFAULT_ENERGY_DATA_DIR = DEFAULT_DATA_DIR / "Energy Usage" / "Data"
 
-def load_energy_data(data_path: str | None = None) -> dict:
+def load_energy_data(data_path: str | None = None) -> dict[str, pd.DataFrame]:
     """Loads all five CSV files as pandas dataframes.
 
     :param data_path: Directory containing the building ``.csv`` files.
