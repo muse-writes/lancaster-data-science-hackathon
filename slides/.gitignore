@@ -1,0 +1,31 @@
+# LaTeX build artefacts
+*.aux
+*.bbl
+*.bcf
+*.bcf-*[0-9]*
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.nlo
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+_minted-*/
+
+# Compiled output, keeping PDFs tracked for now.
+# *.pdf
+
+# Editor / OS cruft
+.DS_Store
+*.swp
