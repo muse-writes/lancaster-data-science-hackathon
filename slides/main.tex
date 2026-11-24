@@ -336,7 +336,16 @@ df.groupby(df.index.hour)["value"].mean() # mean by hour of day
 \end{frame}
 
 \begin{frame}[fragile]{\texttt{anndata}}
-  \texttt{anndata} provides an object for annotated matrices.
+  \texttt{anndata} provides an \texttt{AnnData} object for annotated 2D matrices. Bundling a raw matrix and some metadata together.
+  \begin{lstlisting}[language=Python]
+import anndata as ad
+# We will be loading this data from H5AD files, a genomics file format.
+data = ad.read_h5ad("path/to/data.h5ad")
+# Access useful variables with:
+shape = data.shape
+row_labels, gene_names = data.obs_names, data.var_names
+  \end{lstlisting}
+    You can also grab the raw matrix itself as \texttt{data.X}, but be careful, it's often \textit{huge} and \textit{sparse} so it's best to work with small slices at once.
 \end{frame}
 
 \begin{frame}[fragile]{Loading the data}
@@ -344,13 +353,13 @@ df.groupby(df.index.hour)["value"].mean() # mean by hour of day
   \begin{lstlisting}[language=Python]
 from lancaster_data_science_hackathon import (
     load_energy_data,      # -> dict[str, pd.DataFrame] (pandas)
-    load_radar_data,       # -> dict[int, np.ndarray]   (numpy)
+    load_radar_data,       # -> dict[int, np.NDArray]   (numpy)
     load_mouse_brain_data, # -> dict[int, ad.AnnData]   (anndata)
 )
-# Each defaults to ./data/<dataset>; pass a path to override.
-energy = load_energy_data()        # building name : DataFrame
+# Defaults to loading from ./data/ # Key            : Data
+energy = load_energy_data()        # building name  : DataFrame
 radar  = load_radar_data()         # activity class : spectrogram
-brain  = load_mouse_brain_data()   # puck number : AnnData
+brain  = load_mouse_brain_data()   # puck number    : AnnData
   \end{lstlisting}
 \end{frame}
 
