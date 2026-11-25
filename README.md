@@ -24,15 +24,38 @@ To use your environment to run the main function, run
 pixi run main
 ```
 
+You can freely edit the source code or include new modules, and are particularly encouraged to do so in `src/lancaster_data_science_hackathon/main.py` for convenience.
+
 ## Hackathon Goals
 
 The main goal is to perform some exploratory data analysis on one of the three datasets provided.
 
 To use any of the datasets, download them and place them in a `./data/` folder (which you will need to create). This will let the provided scripts for locating and loading the data find it.
 
+
 ### Radar Data
 
-Download the RadarData folder and place it in `./data/`. The source file, `radar_data.py` contains a public function `load_radar_data()` which loads the relevant data files.
+Download the `RadarData` folder and place it in `./data/`. The source file, `radar_data.py` contains a public function `load_radar_data()` which loads the relevant data files as a dictionary of `numpy` arrays, and `ACTIVITIES` which is a dictionary of integer-assigned human activities.
+
+### Energy Data
+
+Download the `'Energy Usage'` folder and place it in `./data/`. The source file, `energy_data.py` contains `load_energy_data()` which loads the energy CSV files as a dictionary of `pandas` dataframes.
+
+### Mouse Brain Data
+
+Download the `'Mouse Brain'` folder and palce it in `./data/`. The source file, `mouse_brain_data.py` contains `load_mouse_brain_data()`, which loads the sparse matrices as `AnnData` objects.
+
+### Usage Notes
+
+All data loading functions have been exposed at the package level, and can be imported through:
+
+```Python
+from lancaster_data_science_hackathon import (
+    load_radar_data,
+    load_energy_data,
+    load_mouse_brain_data
+)
+```
 
 ## Extras
 
